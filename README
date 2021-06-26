@@ -12,3 +12,10 @@ make
 make install
 export PERL5LIB=/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.bin/SVG-2.85/mybuild/share/perl5:$PERL5LIB
 ```
+
+# st-pipeline
+# edit 2-st-pipeline.sh & stp.sh
+srun --pty -p interactive -c 8 --mem=64g bash
+module load miniconda
+conda activate st-pipeline
+dSQ --job-file stp.sh --mail-type=ALL --partition=scavenge --cpus-per-task=16 --mem-per-cpu=4g --submit
