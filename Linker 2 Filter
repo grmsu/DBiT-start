@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --partition=general 
+#SBATCH --job-name=00_1.qc_raw_data_L2
+#SBATCH --ntasks=1 --cpus-per-task=20
+#SBATCH --mem=64g
+#SBATCH --time=120:00:00
+#SBATCH --mail-type=END
+#SBATCH --mail-user=graham.su@yale.edu
+
+sample=SAMPLENAME
+tmp_data="OUTPUTDIRECTORYPATH"
+
+/gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/00.software/bbmap/bbduk.sh \
+in1=$tmp_data/qc_raw_data/${sample}_raw_qc_linker1_R1.fastq.gz \
+in2=$tmp_data/qc_raw_data/${sample}_raw_qc_linker1_R2.fastq.gz \
+outm1=$tmp_data/qc_raw_data/${sample}_raw_qc_R1.fastq.gz \
+outm2=$tmp_data/qc_raw_data/${sample}_raw_qc_R2.fastq.gz \
+k=30 mm=f rcomp=f restrictleft=80 skipr1=t \
+hdist=3 \
+stats=$tmp_data/qc_raw_data/${sample}_stats.linker2.txt \
+threads=20 \
+literal=ATCCACGTGCTTGAGAGGCCAGAGCATTCG
