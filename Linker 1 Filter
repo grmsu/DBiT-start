@@ -14,8 +14,8 @@ mkdir -p $tmp_data
 mkdir -p $tmp_data/qc_raw_data/
 
 /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/00.software/bbmap/bbduk.sh \
-in1="READ1RAWDATA" \
-in2="/READ2RAWDATA" \
+in1="READ1RAWDATAPATH" \
+in2="/READ2RAWDATAPATH" \
 outm1=$tmp_data/qc_raw_data/${sample}_raw_qc_linker1_R1.fastq.gz \
 outm2=$tmp_data/qc_raw_data/${sample}_raw_qc_linker1_R2.fastq.gz \
 k=30 mm=f rcomp=f restrictleft=118 skipr1=t \
