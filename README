@@ -8,6 +8,14 @@
 sbatch 00_1.qc_raw_data_L1.sh
 sbatch 00_2.qc_raw_data_L2.sh
 ```
+
+```
+# Rearrange UMI/barcode compatible for st-pipeline
+# edit 1-effective.sh
+dSQ --job-file 1-effective.sh --mail-type=ALL --partition=scavenge --cpus-per-task=16 --mem-per-cpu=4g --submit
+```
+
+```
 # Alignment
 # for 2-align-step1.pl
 wget https://cpan.metacpan.org/authors/id/M/MA/MANWAR/SVG-2.85.tar.gz
