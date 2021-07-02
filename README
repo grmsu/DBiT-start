@@ -33,4 +33,6 @@ srun --pty -p interactive -c 8 --mem=64g bash
 module load miniconda
 conda activate st-pipeline
 dSQ --job-file stp.sh --mail-type=ALL --partition=scavenge --cpus-per-task=16 --mem-per-cpu=4g --submit
+# edit converttonames.sh
+sh converttonames.sh
 ```
