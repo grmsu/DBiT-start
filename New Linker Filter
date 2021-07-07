@@ -1,2 +1,14 @@
-sh 00_1.qc_raw_data_L1.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/usftp21.novogene.com/raw_data
-sh 00_2.qc_raw_data_L2.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/usftp21.novogene.com/raw_data
+# filter based on linker sequence
+sh 00_1.qc_raw_data_L1.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/01.rawdata
+sh 00_2.qc_raw_data_L2.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/01.rawdata
+
+# rearrange read format to be compatible with st-pipeline
+sh 1-effective.sh test
+
+# run st-pipeline
+module load miniconda
+conda activate st-pipeline
+sh 2-st-pipeline.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/02.effective
+
+# convert gene IDs to names
+sh converttonames.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/03-stpipeline/
