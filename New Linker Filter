@@ -1,0 +1,2 @@
+sh 00_1.qc_raw_data_L1.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/usftp21.novogene.com/raw_data
+sh 00_2.qc_raw_data_L2.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/usftp21.novogene.com/raw_data
