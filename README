@@ -36,3 +36,9 @@ dSQ --job-file stp.sh --mail-type=ALL --partition=scavenge --cpus-per-task=16 --
 # edit converttonames.sh
 sh converttonames.sh
 ```
+
+# 07/08/2021
+# Updating Seurat package removed my.background argument in SpatialPlots
+# To fix:
+# run 
+# install.packages("/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.software/seurat.tar.gz",repos=NULL, type = "source")
