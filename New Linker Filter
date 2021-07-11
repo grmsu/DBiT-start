@@ -1,4 +1,3 @@
-
 # filter based on linker sequence
 sh /gpfs/ysm/project/fan/gs592/Database/SH/0-LinkerFilter1.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/01.rawdata
 sh /gpfs/ysm/project/fan/gs592/Database/SH/0-LinkerFilter2.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/01.rawdata
@@ -9,7 +8,7 @@ sh /gpfs/ysm/project/fan/gs592/Database/SH/1-RearrangeRead.sh test /gpfs/ysm/pro
 # run st-pipeline
 module load miniconda
 conda activate st-pipeline
-sh /gpfs/ysm/project/fan/gs592/Database/SH/2-STpipeline.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/02.effective/
+sh /gpfs/ysm/project/fan/gs592/Database/SH/2-STpipeline.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/
 
 # convert gene IDs to names
 sh /gpfs/ysm/project/fan/gs592/Database/SH/2-ConvertToNames.sh test /gpfs/ysm/project/fan/gs592/02_Spatial_Hippocampus_DG/03-stpipeline/
