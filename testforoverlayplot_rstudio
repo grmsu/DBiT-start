@@ -1,0 +1,186 @@
+> test <- load.image("HCDG3_OUTLINE_BG.jpg")
+> dimtest <- dim(test)
+> dimtest
+[1] 2505 2326    1    3
+> ?imdraw
+> overlay <- load.image("HCDG3.svg")
+> testoverlay <- imdraw(test,overlay,x=1051,y=672)
+> plot(testoverlay)
+> plot(testoverlay) + NoAxes()
+Error in plot(testoverlay) + NoAxes() : 
+  non-numeric argument to binary operator
+In addition: Warning message:
+Incompatible methods ("Ops.imager_array", "+.gg") for "+" 
+> ?plot
+> ?plot
+> ggplot(testoverlay)
+Error: `data` must be a data frame, or other object coercible by `fortify()`, not an S3 object with class cimg/imager_array/numeric.
+Run `rlang::last_error()` to see where the error occurred.
+> ptest <- plot(testoverlay)
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = jdb_palette("dark_violet", type = "continuous"),limits=c(0,5000),
++                           oob = scales::squish) +
++     ggtitle("UMI") +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank()) + SeuratTheme() + RestoreLegend(legend.title = element_blank()) + NoAxes() + NoTitle() + NoLegend()
+Error: `data` must be a data frame, or other object coercible by `fortify()`, not an S3 object with class cimg/imager_array/numeric.
+Run `rlang::last_error()` to see where the error occurred.
+> plot(testoverlay, axes = FALSE)
+> test <- data_filtered %>% separate(X, c("A", "B"),  sep = "x")
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = jdb_palette("dark_violet", type = "continuous"),limits=c(0,5000),
++                           oob = scales::squish) +
++     ggtitle("UMI") +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank(),plot.background = element_rect(fill = "transparent", color=NA)) + NoAxes() + NoLegend() + NoTitle()
+Error in NoTitle() : could not find function "NoTitle"
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = jdb_palette("dark_violet", type = "continuous"),limits=c(0,5000),
++                           oob = scales::squish) +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank(),plot.background = element_rect(fill = "transparent", color=NA)) + NoAxes() + NoLegend()
+> plotD
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = c(transparent("black",1),"FF00FF"),limits=c(0,5000),
++                           oob = scales::squish) +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank(),plot.background = element_rect(fill = "transparent", color=NA)) + NoAxes() + NoLegend()
+Error: Unknown colour name: ff00ff
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = c(transparent("black",1),"#FF00FF"),limits=c(0,5000),
++                           oob = scales::squish) +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank(),plot.background = element_rect(fill = "transparent", color=NA)) + NoAxes() + NoLegend()
+> plotD
+> dev.off()
+null device 
+          1 
+> plotD
+> plotD <- ggplot(test, aes(x = as.numeric(A), y = as.numeric(B), color=count)) +
++     scale_color_gradientn(colours = c(transparent("black",1),"#FF00FF"),limits=c(0,3000),
++                           oob = scales::squish) +
++     guides(colour = guide_colourbar(barwidth = 1, barheight = 15)) +
++     geom_point(shape = 15, size = 2.2, alpha = 0.2) +
++     geom_point(shape = 15, size = 2.1, alpha = 0.1) +
++     geom_point(shape = 15, size = 2)+
++     expand_limits(x = 0, y = 0) +
++     scale_x_continuous(name="X", limits = c(NA, NA), expand = expansion(mult = c(-0.013, -0.013))) +
++     scale_y_reverse(name="Y", limits = c(NA, NA), expand = expansion(mult = c(-0.013, 0.008))) +
++     coord_equal(xlim=c(0,51),ylim=c(51,1)) +
++     theme(plot.title = element_text(hjust = 0.5, size = 25, face = "bold"),
++           axis.text=element_text(size=20),
++           axis.title=element_text(size=20,face="bold"),
++           legend.text=element_text(size=20),
++           legend.title = element_blank(),
++           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
++           panel.background = element_blank(),plot.background = element_rect(fill = "transparent", color=NA)) + NoAxes() + NoLegend()
+> dev.off()
+null device 
+          1 
+> plotD
+> png(file = "testoverlayplot.png",width=539,height=526)
+> plotD
+> dev.off()
+RStudioGD 
+        2 
+> overlayX <- load.image("testoverlayplot.png")
+> testoverlay <- imdraw(test,overlayX,x=1051,y=672)
+Error in if (spectrum(sprite) == 3 & (spectrum(im) == 1)) { : 
+  missing value where TRUE/FALSE needed
+> testX <- load.image("HCDG3_OUTLINE_BG.jpg")
+> testoverlay <- imdraw(testX,overlayX,x=1051,y=672)
+> plot(testoverlay, axes = FALSE)
+> png(file = "testoverlayplot.png",width=539,height=526,bg="transparent")
+> plotD
+> dev.off()
+RStudioGD 
+        2 
+> overlayX <- load.image("testoverlayplot.png")
+> testoverlay <- imdraw(testX,overlayX,x=1051,y=672)
+Error in imdraw(testX, overlayX, x = 1051, y = 672) : 
+  Image and sprite have incompatible spectra
+> dim(testX)
+[1] 2505 2326    1    3
+> dim(overlayX)
+[1] 539 526   1   4
+> png(file = "testX.png",width=2505,height=2326,bg="transparent")
+> testX
+Image. Width: 2505 pix Height: 2326 pix Depth: 1 Colour channels: 3 
+> dev.off()
+RStudioGD 
+        2 
+> png(file = "testX.png",width=2505,height=2326,bg="transparent")
+> plot(testX,axes=FALSE)
+> dev.off()
+RStudioGD 
+        2 
+> testY <- image.load("testX.png")
+Error in image.load("testX.png") : could not find function "image.load"
+> testY <- load.image("testX.png")
+> testoverlay <- imdraw(testY,overlayX,x=1051,y=672)
+> plot(testoverlay,axes=FALSE)
