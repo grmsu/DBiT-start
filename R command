@@ -1,3 +1,5 @@
 setwd("~/project/RStudioScripts")
 rmarkdown::render("Seurat-Rstudio-Analysis-Cleaned-07082021.Rmd",output_file="HCDG1 Report",output_dir="/gpfs/ysm/home/gs592/project/02_Spatial_Hippocampus_DG/05.report/")
 rmarkdown::render("Seurat-Rstudio-Analysis-Cleaned-html-output.Rmd",output_file="HCDG1 Report Again",output_dir="/gpfs/ysm/home/gs592/project/02_Spatial_Hippocampus_DG/05.report/")
+
+rmarkdown::render("Seurat-Rstudio-Analysis-Cleaned-html-output-NO-INTEGRATION.Rmd",output_file="BO1 Report",output_dir="/gpfs/ysm/home/gs592/project/03_Spatial_Brain_Organoid2/05.report/")
