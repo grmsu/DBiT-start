@@ -42,3 +42,13 @@ sh converttonames.sh
 # To fix:
 # run 
 # install.packages("/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.software/seurat.tar.gz",repos=NULL, type = "source")
+
+# 12/16/2021
+# Install clusterProfiler package
+# run below
+packageurl <- "https://cran.r-project.org/src/contrib/Archive/rvcheck/rvcheck_0.1.8.tar.gz"
+install.packages(packageurl, repos=NULL, type="source")
+remove.packages("clusterProfiler")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("clusterProfiler")
