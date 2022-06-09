@@ -20,10 +20,11 @@ dSQ --job-file 1-effective.sh --mail-type=ALL --partition=scavenge --cpus-per-ta
 # for 2-align-step1.pl
 wget https://cpan.metacpan.org/authors/id/M/MA/MANWAR/SVG-2.85.tar.gz
 tar -zxvf SVG-2.85.tar.gz
-perl Makefile.PL PREFIX=/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.bin/SVG-2.85/mybuild
+module load Perl/5.28.0-GCCcore-7.3.0 #have to run this for all related to perl
+perl Makefile.PL INSTALL_BASE=/gpfs/ysm/project/fan/gs592/Database/PerlScripts/perl_install/SVG-2.85/mybuild
 make
 make install
-export PERL5LIB=/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.bin/SVG-2.85/mybuild/share/perl5:$PERL5LIB
+export PERL5LIB=/gpfs/ysm/project/fan/gs592/Database/PerlScripts/perl_install/SVG-2.85/mybuild/lib/perl5:$PERL5LIB
 ```
 
 ```
