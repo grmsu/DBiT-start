@@ -53,3 +53,19 @@ remove.packages("clusterProfiler")
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("clusterProfiler")
+
+
+# 09/12/2022
+# creating new conda environment for RStudio
+module load miniconda
+conda activate ${env_name}
+conda install -c conda-forge geos
+pip install igraph
+conda install -c conda-forge r-reticulate
+conda install -c conda-forge r-leiden
+conda install -c conda-forge r-rcpp
+conda install -c conda-forge gdal
+conda install -c conda-forge r-gert
+conda install -c conda-forge r-usethis
+conda install -c conda-forge r-terra
+conda install -c conda-forge r-rgdal
