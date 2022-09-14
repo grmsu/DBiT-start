@@ -42,7 +42,7 @@ sh converttonames.sh
 # Updating Seurat package removed my.background argument in SpatialPlots
 # To fix:
 # run 
-# install.packages("/gpfs/ysm/project/fan/gs592/01_Spatial_Organoid/00.software/seurat.tar.gz",repos=NULL, type = "source")
+# install.packages("/gpfs/ysm/project/fan/gs592/RStudioScripts/seuratpkg-cust/seurat.tar.gz",repos=NULL, type = "source")
 
 # 12/16/2021
 # Install clusterProfiler package
@@ -55,17 +55,19 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("clusterProfiler")
 
 
-# 09/12/2022
-# creating new conda environment for RStudio
+# 09/14/2022
+# creating new conda environment for RStudio on Yale HPC
 module load miniconda
-conda activate ${env_name}
-conda install -c conda-forge geos
-pip install igraph
-conda install -c conda-forge r-reticulate
-conda install -c conda-forge r-leiden
-conda install -c conda-forge r-rcpp
-conda install -c conda-forge gdal
-conda install -c conda-forge r-gert
-conda install -c conda-forge r-usethis
-conda install -c conda-forge r-terra
-conda install -c conda-forge r-rgdal
+mamba create -n ~env-name~ r-base=4.0 r-essentials r-raster r-rgdal python
+pip install magic-impute
+mamba install cmake
+mamba install r-devtools
+# in R
+R
+install.packages("pacman")
+install.packages("BiocManager")
+install.packages("Rmagic")
+devtools::install_github("gadenbuie/rsthemes")
+library(rsthemes)
+rsthemes::install_rsthemes()
+pacman::p_load(~your_packages~)
