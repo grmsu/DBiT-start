@@ -72,3 +72,4 @@ devtools::install_github("gadenbuie/rsthemes")
 library(rsthemes)
 rsthemes::install_rsthemes()
 pacman::p_load(~your_packages~)
+~~request 4 CPUs 16GB each~~ rstudio 1.417
