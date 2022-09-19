@@ -57,6 +57,7 @@ BiocManager::install("clusterProfiler")
 
 # 09/14/2022
 # creating new conda environment for RStudio on Yale HPC
+srun --pty -p interactive bash
 module load miniconda
 mamba create -n ~env-name~ r-base=4.0 r-essentials r-raster r-rgdal python
 pip install magic-impute
