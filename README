@@ -60,6 +60,7 @@ BiocManager::install("clusterProfiler")
 srun --pty -p interactive bash
 module load miniconda
 mamba create -n ~env-name~ r-base=4.0 r-essentials r-raster r-rgdal python
+conda activate ~env-name~
 pip install magic-impute
 mamba install cmake
 mamba install r-devtools
